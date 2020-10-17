@@ -3,7 +3,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1234',
-    database: 'Sayura-Beach-Hotel'
+    database: 'my-db'
 });
 
 connection.connect((err) => {
@@ -17,7 +17,7 @@ module.exports = function (app) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
-        connection.query('INSERT INTO newcustomer (NIC,name,email,telephone,address) VALUES ("' + req.query.NIC + '","'+req.query.name+'","'+req.query.email+'","'+req.query.telephone+'","'+req.query.address+'")', (err, rows) => {
+        connection.query('INSERT INTO newcustomer (NIC,name,email,phone,address) VALUES ("' + req.query.NIC + '","'+req.query.name+'","'+req.query.email+'","'+req.query.phone+'","'+req.query.address+'")', (err, rows) => {
             console.log('Error here', err);
         });
     });
